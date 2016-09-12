@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+      [ng\:cloak], [ng-cloak], .ng-cloak {
+        display: none !important;
+      }
+      .red { color: red; }
+      .border-red { border-color: red; }
+      .green { color: green; }
+      .border-green { border-color: green; }
+    </style>
+  </head>
+<body ng-app="LunchCheck" ng-controller="LunchCheckController">
+   <div class="container">
+     <h1>Lunch Checker</h1>
+
+         <div class="form-group">
+             <input id="lunch-menu" type="text" ng-model="itemsStr"
+             ng-class="{'border-green': isOk, 'border-red': isOk === false}"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control">
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="checkItems(itemsStr)">Check If Too Much</button>
+         </div>
+         <div class="form-group message">
+          <span ng-class="{green: isOk, red: !isOk}" ng-cloak="">
+           {{message}}
+          </span>
+         </div>
+   </div>
+
+	 <script src="./angular.min.js"></script>
+	 <script src="./app.js"></script>
+</body>
+</html>
